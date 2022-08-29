@@ -25,13 +25,11 @@ function EditProfile({ navigation, route }) {
   const userUpdate = useSelector((state) => state.userUpdate);
   const { loading, success, error } = userUpdate;
 
-  console.log("Edit Profile", (route.params.user).img);
-
-  const handleSubmit = async (values) => {
-    const { name, email, password } = values;
-    dispatch(updateUser(name, email, password, values.image[0]));
-    if (error)
-      navigation.navigate(routes.NOTES);
+  const handleSubmit = async ({ name, email, password, image }) => {
+    console.log(name, email, password, image[0]);
+    dispatch(updateUser(name, email, password, image[0]));
+    // if (error)
+    //   navigation.navigate(routes.NOTES);
   };
 
   const handleLogout = () => {

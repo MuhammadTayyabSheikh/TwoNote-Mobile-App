@@ -1,13 +1,13 @@
 {
 	"expo": {
 		"name": "TwoNote",
-		"slug": "TwoNote",
+		"slug": "TwoNote1",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./src/assets/TwoNote-1.png",
+		"icon": "./src/assets/splash.png",
 		"userInterfaceStyle": "light",
 		"splash": {
-			"image": "./src/assets/splash.jpg",
+			"image": "./src/assets/splash.png",
 			"resizeMode": "cover",
 			"backgroundColor": "#002b36"
 		},
@@ -19,13 +19,14 @@
 			"supportsTablet": true
 		},
 		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./src/assets/TwoNote-1.png",
-				"backgroundColor": "#FFFFFF"
-			}
+			"package": "com.twonote.www"
 		},
 		"web": {
 			"favicon": "./src/assets/TwoNote-1.png"
+		},
+		"description": "One Safe Place For All Your Notes.",
+		"notification": {
+			"iosDisplayInForeground": true
 		}
 	}
 }

@@ -66,7 +66,7 @@ function LoginScreen({ navigation }) {
             <SubmitButton title="Login" />
           </AppForm>
         </MainScreen>
-        <AppText style={{ color: colors.medium, marginTop: 10 }}>Don't have an account? <AppText style={{ color: colors.primary }}>Register here</AppText></AppText>
+        <AppText style={{ color: colors.medium, marginTop: 10 }}>Don't have an account? <AppText onPress={navigation.navigate(routes.REGISTER)} style={{ color: colors.primary }}>Register here</AppText></AppText>
       </Screen>
     </>
   );
@@ -86,3 +86,4 @@ const styles = StyleSheet.create({
 })
 
 export default LoginScreen;
+fsda

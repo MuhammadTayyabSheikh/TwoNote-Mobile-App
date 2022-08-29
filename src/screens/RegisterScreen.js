@@ -86,7 +86,7 @@ function RegisterScreen({ navigation }) {
             <SubmitButton title="Register" />
           </AppForm>
         </MainScreen>
-        <AppText style={{ color: colors.medium, marginTop: 10 }}>Already have an account? <AppText style={{ color: colors.primary }}>Login here</AppText></AppText>
+        <AppText style={{ color: colors.medium, marginTop: 10 }}>Already have an account? <AppText onPress={navigation.navigate(routes.LOGIN)} style={{ color: colors.primary }}>Login here</AppText></AppText>
       </Screen>
     </>
   );

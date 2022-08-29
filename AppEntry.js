@@ -9,7 +9,7 @@ import AppNavigator from './src/navigation/AppNavigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
 import OfflineNotice from './src/components/OfflineNotice';
 import { logout } from './src/redux/actions/userActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // logger.start();
 
@@ -18,8 +18,12 @@ export default function AppEntry() {
   const [isReady, setIsReady] = useState(false);
 
   const restoreUser = async () => {
-    const users = await storage.getItem("userInfo");
-    console.log("AppEntry", users);
+    // const users = await storage.getItem("userInfo");
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo: users } = userLogin;
+
+    // console.log("AppEntry", users);
     if (users) setUser(users);
   }
 

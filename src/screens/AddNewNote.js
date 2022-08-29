@@ -51,7 +51,8 @@ function AddNewNote({ navigation }) {
 
   return (
     <>
-      <ActivityIndicator visible={loading} animation={require("../assets/animations/uploaded.json")} />
+      {/* <ActivityIndicator visible={loading} animation={require("../assets/animations/uploaded.json")} /> */}
+      <ActivityIndicator visible={loading} loop={false} animation={require("../assets/animations/uploaded.json")} />
       <Screen style={styles.screen}>
         <FlashMessage floating animationDuration={700} />
         <MainScreen heading="Add New Note">
@@ -64,14 +65,6 @@ function AddNewNote({ navigation }) {
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
           >
-            <AppFormField
-              autoCapitalize='none'
-              autoCorrect={false}
-              maxLength={255}
-              icon='ansible'
-              name='title'
-              placeholder='Title'
-            />
             <AppFormPicker
               items={categories}
               name="category"
@@ -81,6 +74,14 @@ function AddNewNote({ navigation }) {
               width="100%"
               PickerItemComponent={CategoryPickerItem}
               numberOfColumns={3}
+            />
+            <AppFormField
+              autoCapitalize='none'
+              autoCorrect={false}
+              maxLength={255}
+              icon='ansible'
+              name='title'
+              placeholder='Title'
             />
             <AppFormField
               maxLength={255}

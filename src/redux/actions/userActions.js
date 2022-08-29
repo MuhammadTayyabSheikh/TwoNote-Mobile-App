@@ -165,10 +165,15 @@ export const updateUser = (name, email, password, img) => async (dispatch, getSt
     }
 
     const { userLogin: { userInfo } } = getState();
+    // const userInfo = storage.getItem("userInfo");
+    console.log(userInfo);
+    const token = userInfo._id || (JSON.parse(userInfo._W)).token;
+    console.log("Update User Action", `Bearer ${token}`);
+
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${(JSON.parse(userInfo._W)).token}`,
+        Authorization: `Bearer ${token}`,
       },
     }
 
@@ -182,13 +187,11 @@ export const updateUser = (name, email, password, img) => async (dispatch, getSt
       },
       config
     );
-
+    console.log(data);
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
 
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     storage.setItem("userInfo", JSON.stringify(data));
-    const c = storage.getItem("userInfo");
-    console.log(c);
   } catch (error) {
     dispatch({
       type: USER_UPDATE_FAILURE,

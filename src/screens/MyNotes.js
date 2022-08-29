@@ -213,7 +213,7 @@ export default function MyNotes({ navigation }) {
                     currentIndex={currentIndex}
                     setIndex={(ind) => setCurrentIndex(ind)}
                     renderRightActions={(index) =>
-                      <NoteDeleteAction onPress={() => { console.log(item._id); deleteHandler(item._id) }} large={index == currentIndex} />
+                      <NoteDeleteAction onPress={() => { deleteHandler(item._id) }} large={index == currentIndex} />
                     }
                     renderLeftActions={() =>
                       <NoteEditAction onPress={() => editHandler(item._id)} />

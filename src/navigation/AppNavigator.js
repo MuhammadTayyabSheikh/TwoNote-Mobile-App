@@ -17,15 +17,23 @@ const Tab = createBottomTabNavigator();
 const AppNavigator = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  console.log("App Navigator", JSON.parse(userInfo._W));
+
+  const userInfo1 = storage.getItem("userInfo");
+
+  console.log("App Navigator", userInfo1)
   let user = null;
   if (userInfo)
-    user = JSON.parse(userInfo._W)
-  else
-    user = null
+    user = userInfo
+  else if (userInfo1)
+    user = userInfo1
+  user = user
 
-  // console.log(userInfo);
-  // console.log((JSON.parse(userInfo._W)));
+  if (user._W)
+    user = JSON.parse(user._W)
+  else
+    user = user
+  // user = JSON.parse(user._W)
+  console.log(typeof user);
 
   return (
     <Tab.Navigator
@@ -67,7 +75,7 @@ const AppNavigator = () => {
       <Tab.Screen
         name={routes.PROFILE}
         component={EditProfile}
-        initialParams={{ user }}
+        initialParams={{ user: user }}
         options={{
           tabBarIcon: ({ color, size }) =>
             <MaterialCommunityIcons
